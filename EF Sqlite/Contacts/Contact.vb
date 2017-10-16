@@ -11,7 +11,8 @@ Public Class Contact
     <EmailAddress>
     <Required>
     Property EmailAddress As String
-
+    <Required>
+    Property Birthdate As Date = Now.Date.AddYears(-18)
 End Class
 Partial Class ContactsContext
     Property Contacts As DbSet(Of Contact)

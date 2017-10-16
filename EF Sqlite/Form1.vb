@@ -1,4 +1,3 @@
-﻿Public Class Form1
 ﻿Imports System.ComponentModel
 Imports System.Data.Entity
 Public Class Form1
@@ -12,5 +11,11 @@ Public Class Form1
         ContactBindingSource.DataSource = db.Contacts.Local.ToBindingList
 
 
+    End Sub
+
+    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        DataGridView1.EndEdit()
+        ContactBindingSource.EndEdit()
+        db.SaveChanges()
     End Sub
 End Class

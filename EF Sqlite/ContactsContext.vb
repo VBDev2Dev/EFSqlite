@@ -17,7 +17,7 @@ Public Class ContactsContext
     End Sub
     Protected Overrides Sub OnModelCreating(modelBuilder As DbModelBuilder)
         MyBase.OnModelCreating(modelBuilder)
-        Dim sqliteConnectionInitializer = New SqliteCreateDatabaseIfNotExists(Of ContactsContext)(modelBuilder)
+        Dim sqliteConnectionInitializer = New SqliteDropCreateDatabaseWhenModelChanges(Of ContactsContext)(modelBuilder)
         Database.SetInitializer(sqliteConnectionInitializer)
 
     End Sub

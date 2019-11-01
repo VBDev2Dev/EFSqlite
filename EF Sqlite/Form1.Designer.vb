@@ -67,21 +67,27 @@ Partial Class Form1
         '
         'NameDataGridViewTextBoxColumn
         '
+        Me.NameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
         Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
         Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        Me.NameDataGridViewTextBoxColumn.Width = 60
         '
         'EmailAddressDataGridViewTextBoxColumn
         '
+        Me.EmailAddressDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.EmailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress"
         Me.EmailAddressDataGridViewTextBoxColumn.HeaderText = "EmailAddress"
         Me.EmailAddressDataGridViewTextBoxColumn.Name = "EmailAddressDataGridViewTextBoxColumn"
+        Me.EmailAddressDataGridViewTextBoxColumn.Width = 95
         '
         'BirthdateDataGridViewTextBoxColumn
         '
+        Me.BirthdateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.BirthdateDataGridViewTextBoxColumn.DataPropertyName = "Birthdate"
         Me.BirthdateDataGridViewTextBoxColumn.HeaderText = "Birthdate"
         Me.BirthdateDataGridViewTextBoxColumn.Name = "BirthdateDataGridViewTextBoxColumn"
+        Me.BirthdateDataGridViewTextBoxColumn.Width = 74
         '
         'Form1
         '

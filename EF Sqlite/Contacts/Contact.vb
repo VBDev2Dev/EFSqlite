@@ -13,6 +13,10 @@ Public Class Contact
     Property EmailAddress As String
     <Required>
     Property Birthdate As Date = Now.Date.AddYears(-18)
+
+    Public Overrides Function ToString As String
+        Return $"ContactID: {ContactID}, Name: {Name}, EmailAddress: {EmailAddress}"
+    End Function
 End Class
 Partial Class ContactsContext
     Property Contacts As DbSet(Of Contact)

@@ -106,6 +106,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="ContactsContext.vb" />
     <Compile Include="Contacts\Contact.vb" />
     <Compile Include="Form1.vb">

@@ -1,5 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.Entity
+Imports Serilog
+
 Public Class Form1
 
     Dim db As ContactsContext
@@ -7,6 +9,7 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         db = New ContactsContext
+        db.Database.Log = Sub(m) Log.Logger.Verbose(m)
         db.Contacts.Load
         ContactBindingSource.DataSource = db.Contacts.Local.ToBindingList
 

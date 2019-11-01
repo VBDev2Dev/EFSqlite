@@ -25,6 +25,7 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ContactBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.ContactIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmailAddressDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -48,6 +49,15 @@ Partial Class Form1
         'ContactBindingSource
         '
         Me.ContactBindingSource.DataSource = GetType(EF_Sqlite.Contact)
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(948, 188)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'ContactIDDataGridViewTextBoxColumn
         '
@@ -78,6 +88,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1182, 351)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -88,9 +99,10 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents ContactBindingSource As BindingSource
+    Friend WithEvents Button1 As Button
     Friend WithEvents ContactIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EmailAddressDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BirthdateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ContactBindingSource As BindingSource
 End Class

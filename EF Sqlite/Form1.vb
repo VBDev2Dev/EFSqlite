@@ -48,4 +48,38 @@ Public Class Form1
 
 
     End Sub
+    Function GetImage() As (Image As Byte(), Success As Boolean)
+        Dim bytes As Byte()
+        Dim ofd As New OpenFileDialog With {
+         .Title = "Select Image",
+         .Filter = "Image files|*.jpg;*.png;*.gif;*.bmp|All files (*.*)|*.*",
+         .InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures)
+         }
+        Dim dlg = ofd.ShowDialog
+
+        If dlg = DialogResult.OK Then
+            Try
+                bytes = My.Computer.FileSystem.ReadAllBytes(ofd.FileName)
+                Using mem As New IO.MemoryStream(bytes)
+                    Using tmp As Image = Image.FromStream(mem) ' make sure it is a valid image
+                        Return (bytes, True)
+                    End Using
+                End Using
+
+            Catch ex As Exception
+                MessageBox.Show($"Could not load as an image.{ex.Message}", "Error Loading Image", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
+        ElseIf dlg = DialogResult.Cancel Then
+            If MessageBox.Show($"Clear Image?", "Unset Image", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then Return (Nothing, True)
+        End If
+        Return (Nothing, False)
+    End Function
+
+    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+        If e.ColumnIndex = ImageColumn.Index AndAlso Not DataGridView1.Rows(e.RowIndex).IsNewRow Then
+            Dim record As Contact = DataGridView1.Rows(e.RowIndex).DataBoundItem
+            Dim img = GetImage()
+            If img.Success Then record.ImageBytes = img.Image
+        End If
+    End Sub
 End Class

@@ -24,12 +24,13 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ContactBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.ContactBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ContactIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmailAddressDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BirthdateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ImageColumn = New System.Windows.Forms.DataGridViewImageColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ContactBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -38,17 +39,13 @@ Partial Class Form1
         '
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ContactIDDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.EmailAddressDataGridViewTextBoxColumn, Me.BirthdateDataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ContactIDDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.EmailAddressDataGridViewTextBoxColumn, Me.BirthdateDataGridViewTextBoxColumn, Me.ImageColumn})
         Me.DataGridView1.DataSource = Me.ContactBindingSource
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(1182, 351)
         Me.DataGridView1.TabIndex = 0
-        '
-        'ContactBindingSource
-        '
-        Me.ContactBindingSource.DataSource = GetType(EF_Sqlite.Contact)
         '
         'Button1
         '
@@ -58,6 +55,10 @@ Partial Class Form1
         Me.Button1.TabIndex = 1
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'ContactBindingSource
+        '
+        Me.ContactBindingSource.DataSource = GetType(EF_Sqlite.Contact)
         '
         'ContactIDDataGridViewTextBoxColumn
         '
@@ -89,6 +90,13 @@ Partial Class Form1
         Me.BirthdateDataGridViewTextBoxColumn.Name = "BirthdateDataGridViewTextBoxColumn"
         Me.BirthdateDataGridViewTextBoxColumn.Width = 74
         '
+        'ImageColumn
+        '
+        Me.ImageColumn.DataPropertyName = "Image"
+        Me.ImageColumn.HeaderText = "Image"
+        Me.ImageColumn.Name = "ImageColumn"
+        Me.ImageColumn.ReadOnly = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -111,4 +119,5 @@ Partial Class Form1
     Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EmailAddressDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BirthdateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ImageColumn As DataGridViewImageColumn
 End Class

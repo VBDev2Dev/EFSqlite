@@ -13,8 +13,20 @@ Public Class Contact
     Property EmailAddress As String
     <Required>
     Property Birthdate As Date = Now.Date.AddYears(-18)
+    <NotMapped>
+    ReadOnly Property Image As Image
+        Get
+            If If(ImageBytes?.Length, 0) = 0 Then Return Nothing
+            Using mem As New IO.MemoryStream(ImageBytes)
+                Using tmp = Image.FromStream(mem)
+                    Return DirectCast(tmp.Clone(), Image)
+                End Using
+            End Using
+        End Get
+    End Property
+    Property ImageBytes As Byte()
 
-    Public Overrides Function ToString As String
+    Public Overrides Function ToString() As String
         Return $"ContactID: {ContactID}, Name: {Name}, EmailAddress: {EmailAddress}"
     End Function
 End Class

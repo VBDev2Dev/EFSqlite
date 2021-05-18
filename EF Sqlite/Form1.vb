@@ -48,6 +48,18 @@ Public Class Form1
 
 
     End Sub
+
+    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        If e.ColumnIndex = ImageColumn.Index AndAlso Not DataGridView1.Rows(e.RowIndex).IsNewRow Then
+            Dim record As Contact = DataGridView1.Rows(e.RowIndex).DataBoundItem
+            If record.Image IsNot Nothing Then
+                Dim imgViewer As New frmImage(record.Image)
+                imgViewer.ShowDialog()
+            End If
+
+        End If
+    End Sub
+
     Function GetImage() As (Image As Byte(), Success As Boolean)
         Dim bytes As Byte()
         Dim ofd As New OpenFileDialog With {

@@ -81,7 +81,7 @@ Public Class Form1
                 MessageBox.Show($"Could not load as an image.{ex.Message}", "Error Loading Image", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
         ElseIf dlg = DialogResult.Cancel Then
-            If MessageBox.Show($"Clear Image?", "Unset Image", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then Return (Nothing, True)
+            If MessageBox.Show($"Clear Image?", "Unset Image", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then Return (Nothing, True)
         End If
         Return (Nothing, False)
     End Function

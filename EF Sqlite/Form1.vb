@@ -48,9 +48,8 @@ Public Class Form1
 
 
     End Sub
-
-    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        If e.ColumnIndex = ImageColumn.Index AndAlso Not DataGridView1.Rows(e.RowIndex).IsNewRow Then
+    Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick
+        If e.Button = MouseButtons.Right AndAlso e.ColumnIndex = ImageColumn.Index AndAlso Not DataGridView1.Rows(e.RowIndex).IsNewRow Then
             Dim record As Contact = DataGridView1.Rows(e.RowIndex).DataBoundItem
             If record.Image IsNot Nothing Then
                 Dim imgViewer As New frmImage(record.Image)

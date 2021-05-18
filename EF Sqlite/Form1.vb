@@ -21,7 +21,8 @@ Public Class Form1
         ContactBindingSource.EndEdit()
         db.SaveChanges()
     End Sub
-    Dim rand As New Random
+
+    ReadOnly rand As New Random
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
 
